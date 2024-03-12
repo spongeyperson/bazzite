@@ -1,7 +1,7 @@
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG BASE_IMAGE_FLAVOR="${BASE_IMAGE_FLAVOR:-main}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-main}"
-ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-main}"
+ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-fsync}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG SOURCE_IMAGE="${SOURCE_IMAGE:-$BASE_IMAGE_NAME-$BASE_IMAGE_FLAVOR}"
 ARG BASE_IMAGE="ghcr.io/ublue-os/${SOURCE_IMAGE}"
@@ -16,7 +16,6 @@ ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-fsync}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
-ARG FSYNC_VERSION="${FSYNC_VERSION}"
 
 COPY system_files/desktop/shared system_files/desktop/${BASE_IMAGE_NAME} /
 
@@ -50,12 +49,12 @@ RUN wget https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora
     rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:sentry:kernel-fsync \
-        kernel-"${FSYNC_VERSION}" \
-        kernel-core-"${FSYNC_VERSION}" \
-        kernel-modules-"${FSYNC_VERSION}" \
-        kernel-modules-core-"${FSYNC_VERSION}" \
-        kernel-modules-extra-"${FSYNC_VERSION}" \
-        kernel-uki-virt-"${FSYNC_VERSION}"
+        kernel-"${AKMODS_FLAVOR}" \
+        kernel-core-"${AKMODS_FLAVOR}" \
+        kernel-modules-"${AKMODS_FLAVOR}" \
+        kernel-modules-core-"${AKMODS_FLAVOR}" \
+        kernel-modules-extra-"${AKMODS_FLAVOR}" \
+        kernel-uki-virt-"${AKMODS_FLAVOR}"
 
 # Setup firmware and asusctl for ASUS devices
 RUN if [[ "${IMAGE_FLAVOR}" =~ "asus" ]]; then \
