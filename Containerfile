@@ -49,12 +49,12 @@ RUN wget https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora
     rpm-ostree override replace \
     --experimental \
     --from repo=copr:copr.fedorainfracloud.org:sentry:kernel-fsync \
-        kernel-"${AKMODS_FLAVOR}" \
-        kernel-core-"${AKMODS_FLAVOR}" \
-        kernel-modules-"${AKMODS_FLAVOR}" \
-        kernel-modules-core-"${AKMODS_FLAVOR}" \
-        kernel-modules-extra-"${AKMODS_FLAVOR}" \
-        kernel-uki-virt-"${AKMODS_FLAVOR}"
+        kernel-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+        kernel-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+        kernel-modules-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+        kernel-modules-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+        kernel-modules-extra-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+        kernel-uki-virt-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64
 
 # Setup firmware and asusctl for ASUS devices
 RUN if [[ "${IMAGE_FLAVOR}" =~ "asus" ]]; then \
