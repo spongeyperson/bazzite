@@ -12,7 +12,7 @@ FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION} AS bazzite
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-main}"
-ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-fsync}"
+ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-main}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
@@ -42,20 +42,18 @@ RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/bazzite/repo/fedora-"
     wget https://pkgs.tailscale.com/stable/fedora/tailscale.repo -O /etc/yum.repos.d/tailscale.repo && \
     sed -i 's@gpgcheck=1@gpgcheck=0@g' /etc/yum.repos.d/tailscale.repo
 
-# Install kernel-fsync
-RUN wget https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-"${FEDORA_MAJOR_VERSION}"/sentry-kernel-fsync-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_sentry-kernel-fsync.repo && \
-    rpm-ostree cliwrap install-to-root / && \
-    rpm-ostree override replace \
-    --experimental \
-    --from repo=copr:copr.fedorainfracloud.org:sentry:kernel-fsync \
-        kernel-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-modules-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-modules-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-modules-extra-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-uki-virt-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-headers-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
-        kernel-devel-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64
+# # Install kernel-fsync
+# RUN wget https://copr.fedorainfracloud.org/coprs/sentry/kernel-fsync/repo/fedora-"${FEDORA_MAJOR_VERSION}"/sentry-kernel-fsync-fedora-"${FEDORA_MAJOR_VERSION}".repo -O /etc/yum.repos.d/_copr_sentry-kernel-fsync.repo && \
+#     rpm-ostree cliwrap install-to-root / && \
+#     rpm-ostree override replace \
+#     --experimental \
+#     --from repo=copr:copr.fedorainfracloud.org:sentry:kernel-fsync \
+#         kernel-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+#         kernel-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+#         kernel-modules-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+#         kernel-modules-core-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+#         kernel-modules-extra-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64 \
+#         kernel-uki-virt-"${AKMODS_FLAVOR}".fc"${FEDORA_MAJOR_VERSION}".x86_64
 
 # Setup firmware and asusctl for ASUS devices
 RUN if [[ "${IMAGE_FLAVOR}" =~ "asus" ]]; then \
@@ -786,7 +784,7 @@ FROM bazzite as bazzite-nvidia
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite-nvidia}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-nvidia}"
-ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-fsync}"
+ARG AKMODS_FLAVOR="${AKMODS_FLAVOR:-main}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-39}"
