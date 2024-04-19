@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.6.0](https://github.com/ublue-os/bazzite/compare/v2.5.0...v2.6.0) (2024-04-19)
+
+
+### Features
+
+* add command to support rebasing ([#989](https://github.com/ublue-os/bazzite/issues/989)) ([c96bc6f](https://github.com/ublue-os/bazzite/commit/c96bc6fb6985365d569f1f157b8d640c45607779))
+* **desktop:** add an action to install ollama on a Bazzite system ([#994](https://github.com/ublue-os/bazzite/issues/994)) ([2dba9b1](https://github.com/ublue-os/bazzite/commit/2dba9b14e54ea94865fa60f2e6b5738e5c6563c8))
+* Re-add clevis by popular demand ([0299d93](https://github.com/ublue-os/bazzite/commit/0299d93322d5b6a6d51b3aef4ac0e272ff8a20fa))
+
+
+### Bug Fixes
+
+* Correctly apply vfio after initramfs changes ([#987](https://github.com/ublue-os/bazzite/issues/987)) ([79146b8](https://github.com/ublue-os/bazzite/commit/79146b86fce6a12483b3990d2d5715e882f83536))
+* move custom-device-pollrates.conf ([#975](https://github.com/ublue-os/bazzite/issues/975)) ([18132ea](https://github.com/ublue-os/bazzite/commit/18132ea9177f0d0d1c5143ab51074fa4da2e5180))
+
 ## [2.5.0](https://github.com/ublue-os/bazzite/compare/v2.4.0...v2.5.0) (2024-04-14)
 
 
