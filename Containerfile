@@ -413,6 +413,8 @@ RUN rpm-ostree install \
         latencyflex-vulkan-layer \
         vkBasalt.x86_64 \
         vkBasalt.i686 \
+        obs-vkcapture.x86_64 \
+        obs-vkcapture.i686 \
         mangohud.x86_64 \
         mangohud.i686 && \
     if grep -q "kinoite" <<< "${BASE_IMAGE_NAME}"; then \
@@ -605,6 +607,7 @@ RUN /usr/libexec/containerbuild/build-initramfs && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /usr/lib/systemd/system.conf && \
     mkdir -p /usr/etc/flatpak/remotes.d && \
     curl -Lo /usr/etc/flatpak/remotes.d/flathub.flatpakrepo https://dl.flathub.org/repo/flathub.flatpakrepo && \
+    systemctl enable brew-dir-fix.service && \
     systemctl enable brew-setup.service && \
     systemctl enable brew-upgrade.timer && \
     systemctl enable brew-update.timer && \
