@@ -4,7 +4,7 @@
 
 [![build-bazzite](https://github.com/ublue-os/bazzite/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/bazzite/actions/workflows/build.yml) [![build-bazzite-isos](https://github.com/ublue-os/bazzite/actions/workflows/build_iso.yml/badge.svg)](https://github.com/ublue-os/bazzite/actions/workflows/build_iso.yml)
 
-# [🇺🇸](https://github.com/ublue-os/bazzite/blob/main/README.md) [🇪🇸](https://github.com/ublue-os/bazzite/blob/main/README-SPA.md) [🇮🇩](https://github.com/ublue-os/bazzite/blob/main/README-ID.md)
+# [🇺🇸](https://github.com/ublue-os/bazzite/blob/main/README.md) [🇪🇸](https://github.com/ublue-os/bazzite/blob/main/README-SPA.md) [🇮🇩](https://github.com/ublue-os/bazzite/blob/main/README-ID.md) [:cn:](https://github.com/ublue-os/bazzite/blob/main/README-zh-cn.md)
 
 <p align="center">
   <a href="https://download.bazzite.gg/"><img src="/repo_content/download.png?raw=true" alt="Download Bazzite"/></a>
@@ -13,22 +13,27 @@
 ---
 
 # Table of Contents
-- [Features for **All** Bazzite Images](#about--features)
-  - [Features for **Desktop** Images](#desktop)
-  - [Features for **Steam Deck / HTPC** Images](#steam-deckhome-theater-pcs-htpcs)
-    - [Alternative Handhelds](#alternative-handhelds)
-  - [Features for **GNOME** Images](#gnome)
-  - [Features from Upstream](#features-from-upstream)
-- [Why](#why)
-- [Showcase](#showcase)
-- [Documentation & Newsletters](#documentation--newsletters)
-- [Custom Packages](#custom-packages)
-- [Image Verification](#verification)
-- [Secure Boot](#secure-boot)
-- [Metrics](#contributor-metrics)
-- [Special Thanks](#special-thanks)
-- [Building Your Own](#build-your-own)
-- [Community](#join-the-community)
+- [Language](#---cn)
+- [Table of Contents](#table-of-contents)
+  - [About \& Features](#about--features)
+    - [Desktop](#desktop)
+    - [Steam Deck/Home Theater PCs (HTPCs)](#steam-deckhome-theater-pcs-htpcs)
+      - [Alternative Handhelds](#alternative-handhelds)
+    - [GNOME](#gnome)
+    - [Features from Upstream](#features-from-upstream)
+      - [Universal Blue](#universal-blue)
+      - [Features from Fedora Linux (Kinoite \& Silverblue)](#features-from-fedora-linux-kinoite--silverblue)
+  - [Why](#why)
+  - [Showcase](#showcase)
+  - [Documentation \& Newsletters](#documentation--newsletters)
+  - [Custom Packages](#custom-packages)
+  - [Verification](#verification)
+  - [Secure Boot](#secure-boot)
+    - [Contributor Metrics](#contributor-metrics)
+      - [Star History](#star-history)
+  - [Special Thanks](#special-thanks)
+  - [Build Your Own](#build-your-own)
+  - [Join The Community](#join-the-community)
 ---
 
 ## About & Features
@@ -124,7 +129,7 @@ Variant designed for usage as an alternative to SteamOS on the Steam Deck, and f
 - Applies SteamOS's kernel parameters.
 - Color calibrated display profiles for matte and reflective Steam Deck screens included.
 - Default-disabled power-user features, including:
-    - Service for low-risk undervolting of the Steam Deck via [RyzenAdj](https://github.com/FlyGoat/RyzenAdj) and [Ryzen SMU](https://gitlab.com/leogx9r/ryzen_smu), see `ryzenadj.service` and `/etc/default/ryzenadj`.
+    - Service for low-risk undervolting of the Steam Deck as well as AMD Framework Laptops via [RyzenAdj](https://github.com/FlyGoat/RyzenAdj) and [Ryzen SMU](https://gitlab.com/leogx9r/ryzen_smu), see `ryzenadj.service` and `/etc/default/ryzenadj`.
     - Service for limiting the max charge level of the battery, see `batterylimit.service` and `/etc/default/batterylimit`. <sup><sub>(Works even when the device is off)</sub></sup>
     - Built in support for display overclocking. For example, add `GAMESCOPE_OVERRIDE_REFRESH_RATE=40,70` to `/etc/environment`.
     - 32GB RAM mod your Steam Deck? Enjoy double the maximum VRAM amount, automatically applied. <sup><sub>(Can you share your soldering skills?)</sub></sup>
